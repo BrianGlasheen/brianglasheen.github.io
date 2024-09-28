@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>servers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <p id="datetime"></p>
+    </header>
+
+    <div class="main-container">
+        <div class="content-wrapper">
+            <nav>
+                <a href="index.html">home</a>
+                <a href="servers.html">servers</a>
+                <a href="blog.html">blog</a>
+            </nav>
+
+            <div class="content">
+                <fieldset>
+                    <legend>MINECRAFT</legend>
+                    <div class="server-list">
+                        <div class="server-item">
+                            <p class="server-status status-offline">Status: Offline</p>
+                            <!-- <p class="server-metric">Uptime: </p> -->
+                            <p class="server-metric">Last Online: </p>
+                            <p class="server-metric">Players: 0</p>
+                        </div>
+                    </div>
+                </fieldset>                
+                <fieldset>
+                    <legend>DATABASE</legend>
+                    <div class="server-list">
+                        <div class="server-item">
+                            <p class="server-status status-online">Status: Offline</p>
+                            <!-- <p class="server-metric">Uptime: </p> -->
+                            <p class="server-metric">Last Online: </p>
+                            <p class="server-metric">Connections: 0</p>
+                            <p class="server-metric">Load: 0.0</p>
+                            <p class="server-metric">Disk Usage: 0%</p>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>WEB</legend>
+                    <div class="server-list">
+                        <div class="server-item">
+                            <p class="server-status status-online">Status: Offline</p>
+                            <!-- <p class="server-metric">Uptime: </p> -->
+                            <p class="server-metric">Last Online: </p>
+                            <p class="server-metric">Users: 0</p>
+                            <p class="server-metric">Load: 0.0</p>
+                            <p class="server-metric">Memory: 0%</p>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <div class="marquee">
+        <marquee behavior="scroll" direction="left">
+            <img src="images/ditto.gif" alt="Ditto" style="max-width:30px">
+            SERVER MONITORING ACTIVE - 0 / 3 NOMINAL
+        </marquee>
+    </div>
+
+    <footer>
+        <img src="images/char.gif" alt="Character">
+        <p>❤</p>
+    </footer>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const dateTimeString = now.toLocaleTimeString();
+            document.getElementById('datetime').textContent = dateTimeString;
+        }
+
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
+</body>
+</html>
