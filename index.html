@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="scripts.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>brian glasheen!</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
-    <script src="scripts.js"></script>
 </head>
 <body>
     <header>
         <p id="datetime"></p>
     </header>
 
+    <div class="theme-toggle-container">
+        <button class="theme-toggle" onclick="toggleTheme()">theme</button>
+    </div>
+
     <div class="main-container">
         <div class="content-wrapper">
+            
             <nav>
                 <a href="index.html">home</a>
                 <a href="servers.html">servers</a>
@@ -29,6 +34,7 @@
                             hi, my name is <span class="yello w">brian glasheen</span>
                             <img src="images/output-onlinegiftools.gif" alt="Animated GIF" style="max-width:40px">
                         </p>
+                        <hr>
                         <p>
                             <a href="https://github.com/BrianGlasheen" target="_blank" rel="noopener noreferrer">github</a> &nbsp;&nbsp;&nbsp;
                             <a href="" target="_blank" rel="noopener noreferrer">resume</a> &nbsp;&nbsp;&nbsp;
@@ -71,16 +77,5 @@
         <img src="images/char.gif" alt="Character">
         <p>❤</p>
     </footer>
-
-    <script>
-        function updateDateTime() {
-            const now = new Date();
-            const dateTimeString = now.toLocaleTimeString();
-            document.getElementById('datetime').textContent = dateTimeString;
-        }
-
-        updateDateTime();
-        setInterval(updateDateTime, 1000);
-    </script>
 </body>
 </html>

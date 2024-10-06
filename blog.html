@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="scripts.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pondering</title>
@@ -11,6 +12,10 @@
     <header>
         <p id="datetime"></p>
     </header>
+
+    <div class="theme-toggle-container">
+        <button class="theme-toggle" onclick="toggleTheme()">theme</button>
+    </div>
 
     <div class="main-container">
         <div class="content-wrapper">
@@ -40,16 +45,5 @@
         <img src="images/char.gif" alt="Character">
         <p>❤</p>
     </footer>
-
-    <script>
-        function updateDateTime() {
-            const now = new Date();
-            const dateTimeString = now.toLocaleTimeString();
-            document.getElementById('datetime').textContent = dateTimeString;
-        }
-
-        updateDateTime();
-        setInterval(updateDateTime, 1000);
-    </script>
 </body>
 </html>

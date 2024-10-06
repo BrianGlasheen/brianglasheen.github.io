@@ -189,7 +189,7 @@ function show_sparkles() {
     }
 
     function newColour() {
-        const colors = [
+        const darkColors = [
             { r: 255, g: 255, b: 204 }, // Light Yellow
             { r: 255, g: 255, b: 102 }, // Bright Yellow
             { r: 255, g: 255, b: 255 }, // White
@@ -202,9 +202,42 @@ function show_sparkles() {
             { r: 255, g: 246, b: 143 }  // Soft Yellow
         ];
 
+        const lightColors = [
+            { r: 67, g: 97, b: 238 },    // Blue (#4361ee)
+            { r: 58, g: 12, b: 163 },    // Deep purple (#3a0ca3)
+            { r: 45, g: 51, b: 74 }      // Dark blue-grey (#2d334a)
+        ];
+    
+        const isLightTheme = document.body.getAttribute('data-theme') === 'light';
+        const colors = isLightTheme ? lightColors : darkColors;
+
         const randomColor = colors[Math.floor(Math.random() * colors.length)];
         return `rgb(${randomColor.r}, ${randomColor.g}, ${randomColor.b})`;
     }
 }
-
 show_sparkles();
+
+
+
+(function() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+})();
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
+
+
+
+function updateDateTime() {
+    const now = new Date();
+    const dateTimeString = now.toLocaleTimeString();
+    document.getElementById('datetime').textContent = dateTimeString;
+}
+updateDateTime();
+setInterval(updateDateTime, 1000);

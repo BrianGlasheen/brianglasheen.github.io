@@ -1,30 +1,53 @@
+:root {
+    --background-image: url("images/stars3.gif");
+    --text-color: #ffffff;
+    --nav-background: rgba(0, 0, 0, 0.3);
+    --content-background: rgba(0, 0, 0, 0.3);
+    --link-color: coral;
+    --link-hover-color: rgb(255, 68, 0);
+    --border-color: #ffcc00;
+    --heading-color: #ffcc00;
+    --marquee-color: #ffcc00;
+}
+
+[data-theme="light"] {
+    --background-image: url("images/stars-light.gif");
+    --text-color: #1a1d2b;
+    --nav-background: rgba(223, 223, 223, 0.9);
+    --content-background: rgba(223, 223, 223, 0.9);
+    --link-color: #ff6b35;
+    --link-hover-color: #e63946;
+    --border-color: #4361ee;
+    --heading-color: #3a0ca3;
+    --marquee-color: #3a0ca3;
+}
+
 html {
-    /* overflow: hidden; */
+    height: 100%;
 }
 
 body {
-    background: url("images/stars3.gif") repeat;
+    background: var(--background-image) repeat;
     margin: 0;
-    color: #ffffff;
+    color: var(--text-color);
     font-family: 'Press Start 2P', cursive;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-
     overflow-y: scroll;
     overflow-x: hidden;
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    transition: color .3s ease;
 }
 
 body::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
+    display: none;
 }
 
 .main-container {
     display: flex;
     flex-direction: column;
-    /* flex: 1; */
 }
 
 header {
@@ -33,17 +56,17 @@ header {
 }
 
 nav {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: var(--nav-background);
     padding: 10px;
-    /* text-align: right; */
+    transition: background-color 0.3s ease;
 }
 
 nav a {
-    color: #ffffff;
-    /* text-decoration: underline overline #ffffff; */
+    color: var(--text-color);
     text-decoration: none;
     display: inline-block;
     margin: 5px 10px;
+    transition: color 0.3s ease;
 }
 
 .content {
@@ -51,33 +74,26 @@ nav a {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: var(--content-background);
+    transition: background-color 0.3s ease;
 }
 
 fieldset {
     border-width: 6px;
-    /* border-image-slice: 1; */
     border-image: repeating-radial-gradient(circle at 10px,
-            rgb(226, 255, 252),
-            rgb(132, 0, 255) 2px,
-            rgb(255, 208, 0) 4px,
-            rgb(132, 0, 255) 2px) 1;
+            var(--border-color),
+            var(--heading-color) 2px,
+            var(--border-color) 4px,
+            var(--heading-color) 2px) 1;
     margin-bottom: 20px;
-    box-shadow: 0 0 5px rgb(132, 0, 255) ;
-    /* animation: glowing 3s ease-in-out infinite; */
-    /* animation: borderColorChange 6s linear infinite; */
+    box-shadow: 0 0 5px var(--border-color);
+    transition: box-shadow 0.3s ease, border-image 0.3s ease;
 }
 
 legend {
     font-family: 'Press Start 2P', cursive;
     padding: 0 10px;
-    color: #ffffff;
-}
-
-.project-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    color: var(--text-color);
 }
 
 .project-list {
@@ -93,19 +109,17 @@ legend {
 
 .marquee {
     font-size: 1.2em;
-    color: #ffcc00;
+    color: var(--marquee-color);
     overflow: hidden;
-    
-    /* width: 80%; */
-    /* max-width: 900px; */
 }
 
 a {
-    color: coral;
+    color: var(--link-color);
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: rgb(255, 68, 0);
+    color: var(--link-hover-color);
 }
 
 footer {
@@ -119,27 +133,73 @@ img {
 }
 
 .yellow {
-    color: #ffcc00;
+    color: var(--heading-color);
+}
+
+.theme-toggle-container {
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.theme-toggle {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    background: var(--content-background);
+    border: 4px outset var(--border-color);
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    border-style: inset;
+    transform: scale(0.98);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
 }
 
 @media (min-width: 768px) {
+
+    .theme-toggle {
+        padding: 8px;
+        font-size: 0.7em;
+    }
+
     .main-container {
         flex-direction: row;
         justify-content: center;
     }
 
     .content-wrapper {
-        border: 4px outset #ffcc00;
-        border-top: 12px outset #ffcc00;
+        border: 4px outset var(--border-color);
+        border-top: 12px outset var(--border-color);
         display: flex;
         width: 80%;
         max-width: 900px;
+        transition: border-color 0.3s ease;
+    }
+
+    .buttons {
+        width: 80%;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .buttons > button {
+        border: var(--border-color) solid 4px;
     }
 
     nav {
         width: 15%;
         padding: 20px;
-        border-right: 4px solid #ffcc00;
+        border-right: 4px solid var(--border-color);
     }
 
     nav a {
@@ -157,19 +217,45 @@ img {
 }
 
 @media (max-width: 767px) {
-    .content-wrapper {
+    .theme-toggle-container {
         width: 100%;
-        border: 4px outset #ffcc00;
-        border-top: 12px outset #ffcc00;
+        padding: 0 10px;
         box-sizing: border-box;
     }
 
+    .content-wrapper {
+        width: 100%;
+        border: 4px outset var(--border-color);
+        border-top: 12px outset var(--border-color);
+        box-sizing: border-box;
+    }
+
+    .buttons {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     nav {
-        border-bottom: 4px outset #ffcc00;
+        border-bottom: 4px outset var(--border-color);
     }
 
     .project-list > div {
-        
         margin-bottom: 0px;
     }
+
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 8px;
+        font-size: 0.7em;
+    }
+}
+
+/* Smooth transitions for theme switching */
+* {
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
 }
