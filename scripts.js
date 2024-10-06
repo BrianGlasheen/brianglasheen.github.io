@@ -234,10 +234,13 @@ function toggleTheme() {
 
 
 
-function updateDateTime() {
-    const now = new Date();
-    const dateTimeString = now.toLocaleTimeString();
-    document.getElementById('datetime').textContent = dateTimeString;
-}
-updateDateTime();
-setInterval(updateDateTime, 1000);
+document.addEventListener('DOMContentLoaded', function() {
+    function updateDateTime() {
+        const now = new Date();
+        const dateTimeString = now.toLocaleTimeString();
+        document.getElementById('datetime').textContent = dateTimeString;
+    }
+    
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+});
