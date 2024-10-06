@@ -38,7 +38,7 @@ body {
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    transition: color .3s ease;
+    transition: color 1s ease;
 }
 
 body::-webkit-scrollbar { 
