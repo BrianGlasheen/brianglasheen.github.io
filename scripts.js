@@ -208,7 +208,7 @@ function show_sparkles() {
             { r: 45, g: 51, b: 74 }      // Dark blue-grey (#2d334a)
         ];
     
-        const dark = localStorage.getItem('data-theme') === 'dark';
+        const dark = document.documentElement.getAttribute('data-theme') === 'dark';
         const colors = dark ? darkColors : lightColors;
 
         const randomColor = colors[Math.floor(Math.random() * colors.length)];
