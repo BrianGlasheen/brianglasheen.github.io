@@ -13,8 +13,8 @@
 [data-theme="light"] {
     --background-image: url("images/stars-light.gif");
     --text-color: #1a1d2b;
-    --nav-background: rgba(223, 223, 223, 0.9);
-    --content-background: rgba(223, 223, 223, 0.9);
+    --nav-background: rgba(223, 223, 223, 0.6);
+    --content-background: rgba(223, 223, 223, 0.6);
     --link-color: #ff6b35;
     --link-hover-color: #e63946;
     --border-color: #4361ee;
